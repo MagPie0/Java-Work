@@ -1,0 +1,286 @@
+﻿// Attached:  HW_5a, 5b, 5c, 5d, 5e, 5f
+// ===================================================
+// Program: HW_5a
+// ===================================================
+// Programmer: Maggie Hillebrecht
+// Class: CMPR_112 – 6pm
+// ====================================================
+// Description: In this program I asked the user to enter in 5 integers and then
+// showed the sum of all of them at the end. I used a count-controlled while loop
+// to do this program.
+// =====================================================
+import java.util.Scanner;
+public class HWFive {
+   public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+       int num;
+       double sum = 0;
+       int count = 0;
+
+
+       System.out.println("Enter 5 integers and the sum will be displayed.");
+
+
+       while(count <= 4)
+       {
+           count++;
+           System.out.print("Enter a number: ");
+           num = input.nextInt();
+           sum += num;
+       }
+       System.out.println("The sum equals " + sum + ".");
+   }
+}
+/* OUTPUT
+Enter 5 integers and the sum will be displayed.
+Enter a number: 1
+Enter a number: 2
+Enter a number: 3
+Enter a number: 4
+Enter a number: 5
+The sum equals 15.0.
+*/
+
+
+
+
+// Attached:  HW_5a, 5b, 5c, 5d, 5e, 5f
+// ===================================================
+// Program: HW_5b
+// ===================================================
+// Programmer: Maggie Hillebrecht
+// Class: CMPR_112 – 6pm
+// ====================================================
+// Description: In this program I asked the user to enter in as many positive numbers
+// as they wanted until they entered a negative number. And then when they stopped I showed
+// the sum of all the numbers they entered using a while loop.
+// =====================================================
+import java.util.Scanner;
+public class HWFive {
+   public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+       int num;
+       double sum = 0;
+       int count = 0;
+
+
+       System.out.println("Enter positive numbers (-1 to quit)\n");
+
+
+       System.out.print("Enter a number: ");
+       num = input.nextInt();
+
+
+       while (num > -1)
+       {
+           sum += num;
+
+
+           System.out.print("Enter a number: ");
+           num = input.nextInt();
+       }
+       System.out.println("The sum equals " + sum + ".");
+   }
+}
+/* OUTPUT
+Enter positive numbers (-1 to quit)
+
+
+Enter a number: 3
+Enter a number: 4
+Enter a number: 5
+Enter a number: 6
+Enter a number: -1
+The sum equals 18.0.
+*/
+
+
+// Attached:  HW_5a, 5b, 5c, 5d, 5e, 5f
+// ===================================================
+// Program: HW_5c
+// ===================================================
+// Programmer: Maggie Hillebrecht
+// Class: CMPR_112 – 6pm
+// ====================================================
+// Description: In this program I had the program randomly put out two numbers (between 0-10) for the user
+// to answer the sum of the two numbers. Until they enter in the answer, they will be repeatedly asked to
+// find the sum of the two numbers.
+// =====================================================
+import java.util.Scanner;
+public class HWFive {
+   public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+       int num1;
+       int num2;
+       int sum = 0;
+       int answer = 0;
+
+
+       num1 = (int) (Math.random() * 10);
+       num2 = (int) (Math.random() * 10);
+       sum = (num1 + num2);
+
+
+       System.out.print("What is " + num1 + " + " + num2 + "? ");
+       answer = input.nextInt();
+
+
+       do {
+           System.out.print("Wrong answer. Try again. ");
+           System.out.print("What is " + num1 + " + " + num2 + "? ");
+           answer = input.nextInt();
+
+
+       } while(answer != sum);
+       System.out.println("You got it!");
+   }
+}
+/* OUTPUT
+What is 2 + 3? 4
+Wrong answer. Try again. What is 2 + 3? 5
+You got it!
+*/
+
+
+// Attached:  HW_5a, 5b, 5c, 5d, 5e, 5f
+// ===================================================
+// Program: HW_5d
+// ===================================================
+// Programmer: Maggie Hillebrecht
+// Class: CMPR_112 – 6pm
+// ====================================================
+// Description: In this program I asked the user to enter in a number and then showed the
+// square root of the number. I then asked the user if they wanted to enter in another number
+// and as long as they said y then it would keep asking but if they put n then it would stop.
+// =====================================================
+import java.util.Scanner;
+public class HWFive {
+   public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+      double number = 0;
+      char charResponse;
+       String response = null;
+     
+      do {
+          System.out.print("Enter a positive number (double): ");
+          number = input.nextDouble();
+
+
+          System.out.println("The square root of " + number + " is " + Math.sqrt(number));
+
+
+          System.out.print("Again (Y or N): ");
+          response = input.next();
+          charResponse = response.charAt(0);
+
+
+      } while((charResponse == 'Y') || charResponse == 'y');
+
+
+   }
+}
+/* OUTPUT
+Enter a positive number (double): 5
+The square root of 5.0 is 2.23606797749979
+Again (Y or N): y
+Enter a positive number (double): 4
+The square root of 4.0 is 2.0
+Again (Y or N): n
+*/
+
+
+// Attached:  HW_5a, 5b, 5c, 5d, 5e, 5f
+// ===================================================
+// Program: HW_5e
+// ===================================================
+// Programmer: Maggie Hillebrecht
+// Class: CMPR_112 – 6pm
+// ====================================================
+// Description: In this program I showed the user all the numbers from 0 to 20 and
+// their square roots.
+// =====================================================
+import java.util.Scanner;
+public class HWFive {
+   public static void main(String[] args) {
+double sqrt = 0;
+
+
+System.out.println("Here are all numbers from 0 to 20 and their squares.");
+for (double i = 0; i <= 20; i++)
+{
+   sqrt = Math.sqrt((double)i);
+
+
+   System.out.println((int)i + "\t" + sqrt);
+}
+   }
+}
+/* OUTPUT
+0        0.0
+1        1.0
+2        1.4142135623730951
+3        1.7320508075688772
+4        2.0
+5        2.23606797749979
+6        2.449489742783178
+7        2.6457513110645907
+8        2.8284271247461903
+9        3.0
+10        3.1622776601683795
+11        3.3166247903554
+12        3.4641016151377544
+13        3.605551275463989
+14        3.7416573867739413
+15        3.872983346207417
+16        4.0
+17        4.123105625617661
+18        4.242640687119285
+19        4.358898943540674
+20        4.47213595499958
+
+
+Process finished with exit code 0
+*/
+
+
+// Attached:  HW_5a, 5b, 5c, 5d, 5e, 5f
+// ===================================================
+// Program: HW_5f
+// ===================================================
+// Programmer: Maggie Hillebrecht
+// Class: CMPR_112 – 6pm
+// ====================================================
+// Description: In this program I had the user enter in 5 numbers using a for loop
+// and then showed the sum of the even numbers.
+// =====================================================
+import java.util.Scanner;
+public class HWFive {
+   public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+       final int LIMIT = 5;
+       int integer = 0;
+       int sum = 0;
+       System.out.println("Enter 5 Integers.");
+
+
+       for (int i = 0; i < LIMIT; i++)
+       {
+           System.out.print("Enter a number: ");
+           integer = input.nextInt();
+           if ((integer % 2) == 0)
+           {
+               sum += integer;
+           }
+       }
+       System.out.println("The sum of even numbers is " + sum + ".");
+   }
+}
+/* OUTPUT
+Enter 5 Integers.
+Enter a number: 1
+Enter a number: 2
+Enter a number: 3
+Enter a number: 4
+Enter a number: 5
+The sum of even numbers is 6.
+*/

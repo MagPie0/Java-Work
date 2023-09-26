@@ -1,0 +1,185 @@
+﻿// Attached:  HW_3c, 3d, 3e
+// ===================================================
+// Program: HW_3c
+// ===================================================
+// Programmer: Maggie Hillebrecht
+// Class: CMPR_112 – 6pm
+// ====================================================
+// Description: In this program I asked the user if them or their group had
+// any preferences when choosing a few restaurants. These preferences included
+// if they/a friend was vegan, gluten-free, or vegetarian.
+// =====================================================
+import java.util.Scanner;
+public class HWThree {
+   public static void main(String[] args)
+   {
+       Scanner input = new Scanner(System.in);
+       String vegan = "";
+       String gluten = "";
+       String vegetarian = "";
+
+
+       System.out.print("Is anyone in your party a vegetarian?");
+       vegetarian = input.nextLine();
+
+
+       System.out.print("Is anyone in your party a vegan?");
+       vegan = input.nextLine();
+
+
+       System.out.print("Is anyone in your party gluten-free?");
+       gluten = input.nextLine();
+
+
+       System.out.println("Here are your restaurant choices:");
+
+
+       if ((gluten.equals("yes")) && (vegetarian.equals("yes")) && (vegan.equals("yes")))
+      {
+          System.out.println("The Chef's Kitchen\n" + "Corner Cafe");
+      }
+      else if ((gluten.equals("yes")) && (vegetarian.equals("yes")) && (vegan.equals("no")))
+      {
+          System.out.println("Main Street Pizza Company");
+      }
+      else if((gluten.equals("no")) && (vegetarian.equals("yes")) && (vegan.equals("no")))
+       {
+           System.out.println("Mama's Fine Italian");
+       }
+      else
+       {
+           System.out.println("Joe's Gourmet Burgers\n" + "Main Street Pizza Company\n"
+                   + "Corner Cafe\n" + "Mama's Fine Italian\n" + "The Chef's Kitchen");
+       }
+   }
+}
+/* OUTPUT
+Is anyone in your party a vegetarian?yes
+Is anyone in your party a vegan?no
+Is anyone in your party gluten-free?yes
+Here are your restaurant choices:
+Main Street Pizza Company
+//=================================
+Is anyone in your party a vegetarian?yes
+Is anyone in your party a vegan?yes
+Is anyone in your party gluten-free?yes
+Here are your restaurant choices:
+The Chef's Kitchen
+Corner Cafe
+*/
+
+
+
+
+// Attached:  HW_3c, 3d, 3e
+// ===================================================
+// Program: HW_3d
+// ===================================================
+// Programmer: Maggie Hillebrecht
+// Class: CMPR_112 – 6pm
+// ====================================================
+// Description: In this program I asked the user how many books they
+// have purchased this month to calculate the amount of
+// rewards points they will receive for that month.
+// =====================================================
+import java.util.Scanner;
+public class HWThree {
+   public static void main(String[] args)
+   {
+       Scanner input = new Scanner(System.in);
+       int numBooks = 0;
+
+
+       System.out.print("How many books have you purchased this month? ");
+       numBooks = input.nextInt();
+
+
+       if (numBooks >= 4)
+       {
+           System.out.println("You've earned 60 points.");
+       }
+       else if (numBooks == 3)
+       {
+           System.out.println("You've earned 30 points");
+       }
+       else if (numBooks == 2)
+       {
+           System.out.println("You've earned 15 points");
+       }
+       else if (numBooks == 1)
+       {
+           System.out.println("You've earned 5 points");
+       }
+       else
+       {
+           System.out.println("You've earned no points");
+       }
+   }
+}
+/* OUTPUT
+How many books have you purchased this month? 2
+You've earned 15 points
+//============================================
+How many books have you purchased this month? 9
+You've earned 60 points.
+*/
+
+
+
+
+// Attached:  HW_3c, 3d, 3e
+// ===================================================
+// Program: HW_3e
+// ===================================================
+// Programmer: Maggie Hillebrecht
+// Class: CMPR_112 – 6pm
+// ====================================================
+// Description: In this program I asked the user how many checks
+// that they have written this month and then program to calculate the
+// amount of fees they have to pay.
+// =====================================================
+import java.util.Scanner;
+public class HWThree {
+   public static void main(String[] args)
+   {
+       Scanner input = new Scanner(System.in);
+       int numChecks = 0;
+       double fees = 0.0;
+
+
+       System.out.print("Enter the number of checks written this month: ");
+       numChecks = input.nextInt();
+
+
+       if (numChecks <= 20)
+       {
+           fees = ((numChecks * .10) + 10);
+       }
+       else if (numChecks >= 39 || numChecks <= 20)
+       {
+           fees = ((numChecks * .08) + 10);
+       }
+       else if (numChecks >= 59 || numChecks <= 40)
+       {
+           fees = ((numChecks * .06) + 10);
+       }
+       else if (numChecks <= 60)
+       {
+           fees = ((numChecks * .04) + 10);
+       }
+       else
+       {
+           System.out.println("oops you didn't enter a number");
+       }
+
+
+       System.out.println("The total fees are $" + fees);
+   }
+}
+/* OUTPUT
+Enter the number of checks written this month: 10
+The total fees are $11.0
+//===================================================
+Enter the number of checks written this month: 44
+The total fees are $13.52
+*/

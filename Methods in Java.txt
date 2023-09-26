@@ -1,0 +1,222 @@
+﻿// Attached:  HW_6a, 6b, 6c
+// ===================================================
+// Program: HW_6a
+// ===================================================
+// Programmer: Maggie Hillebrecht
+// Class: CMPR_112 – 6pm
+// ====================================================
+// Description: In this program I ask the user to input a string/word and then I ask them
+// enter a position number/index. After, the program outputs the character at the position
+// number they entered.
+// =====================================================
+import java.util.Scanner;
+public class HWSix {
+   public static void main(String[]  args)
+   {
+       String strWord;
+       int position = 0;
+       char word = 0;
+
+
+       strWord = getString();
+       position = getCharPosition();
+       showChar(strWord, word, position);
+   }
+   public static String getString()
+   {
+       Scanner input = new Scanner(System.in);
+       String strWord;
+       char word;
+
+
+       System.out.print("Enter a string: ");
+       strWord = input.nextLine();
+       word = strWord.charAt(0);
+
+
+       return strWord;
+   }
+   public static int getCharPosition()
+   {
+       Scanner input = new Scanner(System.in);
+       int position = 0;
+       System.out.print("Enter the position (index): ");
+       position = input.nextInt();
+
+
+       return position;
+   }
+
+
+   public static void showChar(String strWord,char word, int position)
+   {
+       word = strWord.charAt(position);
+       System.out.println("The character at position [" + position + "] is " + word);
+   }
+}
+/* OUTPUT
+Enter a string: maggie
+Enter the position (index): 4
+The character at position [4] is i
+*/
+
+
+
+
+// Attached:  HW_6a, 6b, 6c
+// ===================================================
+// Program: HW_6b
+// ===================================================
+// Programmer: Maggie Hillebrecht
+// Class: CMPR_112 – 6pm
+// ====================================================
+// Description: In this program I ask the user to input the wholesale price of an item
+// and the markup percentage to then output the final cost of the item. I used one method
+// and a decimal format in order to output the correct amount with the correct amount of
+// decimal places.
+// =====================================================
+import java.text.DecimalFormat;
+import java.util.Scanner;
+public class HWSix {
+   public static void main(String[]  args)
+   {
+       Scanner input = new Scanner(System.in);
+       DecimalFormat twoDigits = new DecimalFormat("$#,###.00");
+       float wholesale = 0;
+       float markup = 0;
+       float finalPrice = 0;
+
+
+
+
+       System.out.print("Enter the item's wholesale cost: ");
+       wholesale = input.nextFloat();
+       System.out.print("Enter the item's markup percentage: ");
+       markup = input.nextFloat();
+
+
+       System.out.println("The item's retail price is " + twoDigits.format(calculateRetail(wholesale, markup)));
+   }
+   public static float calculateRetail(float wholesale, float markup)
+   {
+       float endMarkup = markup/100;
+       float finalPrice = 0;
+
+
+       finalPrice = (wholesale*endMarkup) + wholesale;
+
+
+       return finalPrice;
+   }
+
+
+}
+/* OUTPUT
+Enter the item's wholesale cost: 200
+Enter the item's markup percentage: 20
+The item's retail price is $240.00
+*/
+
+
+// Attached:  HW_6a, 6b, 6c
+// ===================================================
+// Program: HW_6c
+// ===================================================
+// Programmer: Maggie Hillebrecht
+// Class: CMPR_112 – 6pm
+// ====================================================
+// Description: In this program I ask the user to input 5 test scores and then I showed the grade
+// letters for each score. After I showed the score average and the grade letter average. I used
+// an array for the test score, two methods, for loop, and if statements to help output the averages and grade letters.
+// =====================================================
+import java.text.DecimalFormat;
+import java.util.Scanner;
+public class HWSix {
+   public static void main(String[]  args)
+   {
+       Scanner input = new Scanner(System.in);
+       DecimalFormat twoDigits = new DecimalFormat("##.00");
+       double firstScore = 0;
+       double secondScore = 0;
+       double thirdScore = 0;
+       double fourthScore = 0;
+       double fifthScore = 0;
+       double testScore[] = {firstScore, secondScore, thirdScore, fourthScore, fifthScore};
+       double totalScore = 0;
+
+
+       System.out.print("Enter the first test score: ");
+       firstScore = input.nextDouble();
+       System.out.print("Enter the second test score: ");
+       secondScore = input.nextDouble();
+       System.out.print("Enter the third test score: ");
+       thirdScore = input.nextDouble();
+       System.out.print("Enter the fourth test score: ");
+       fourthScore = input.nextDouble();
+       System.out.print("Enter the fifth test score: ");
+       fifthScore = input.nextDouble();
+
+
+       System.out.println("Here are the grades and the averages: ");
+
+
+       for (int i = 0; i < 5; i++)
+       {
+           System.out.println("Test " + (i + 1) + ": " + determineGrade(testScore[i]));
+       }
+       System.out.println("\nAverage score: " + twoDigits.format(calcAverage(firstScore, secondScore, thirdScore, fourthScore, fifthScore)));
+
+
+       totalScore = calcAverage(firstScore, secondScore, thirdScore, fourthScore, fifthScore);
+
+
+       System.out.println("Average letter grade: " + determineGrade(totalScore));
+   }
+   public static char determineGrade(double testScore)
+   {
+       if (testScore <= 100 || testScore >= 90)
+       {
+           return 'A';
+       }
+       else if (testScore <= 90 || testScore >= 80)
+       {
+           return 'B';
+       }
+       else if (testScore <= 80 || testScore >= 70)
+       {
+           return  'C';
+       }
+       else if (testScore <= 70 || testScore >= 60)
+       {
+           return 'D';
+       }
+       else
+       {
+           return 'F';
+       }
+   }
+   public static double calcAverage(double firstScore, double secondScore, double thirdScore, double fourthScore, double fifthScore)
+   {
+       return (firstScore + secondScore + thirdScore + fourthScore + fifthScore) / 5;
+   }
+}
+/* OUTPUT
+Enter the first test score: 98
+Enter the second test score: 97
+Enter the third test score: 95
+Enter the fourth test score: 94
+Enter the fifth test score: 90
+Here are the grades and the averages:
+Test 1: A
+Test 2: A
+Test 3: A
+Test 4: A
+Test 5: A
+
+
+Average score: 94.80
+Average letter grade: A
+
+
+Process finished with exit code 0
+*/
